@@ -1,0 +1,112 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python environments
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+!.env.template
+!.env.sample
+
+# API keys and credentials
+*.pem
+*.key
+credentials.json
+service-account*.json
+kaggle.json
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Type checking and linting
+.mypy_cache/
+.ruff_cache/
+.pyright/
+
+# Logs and temporary files
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Dataset files - do not upload raw training/evaluation data
+dataset/*
+!dataset/.gitkeep
+!dataset/README_PLACE_DATASET_HERE.txt
+data/dataset/
+data/raw/
+data/processed/
+test_images/
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+
+# Local application data
+*.db
+*.sqlite
+*.sqlite3
+
+# ML checkpoints and large model artifacts
+models/*
+!models/.gitkeep
+!models/class_names.json
+*.keras
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.onnx
+*.tflite
+*.pb
+*.weights
+
+# TensorBoard and experiment outputs
+runs/
+lightning_logs/
+tensorboard/
+wandb/
+mlruns/
+checkpoints/
+
+# Generated reports and plots
+confusion_matrix.png
+classification_report.txt
+models/evaluation_report.json
+models/training_history.json
+CropHealthAI_Viva_Preparation.html
+CropHealthAI_Viva_Preparation.pdf
