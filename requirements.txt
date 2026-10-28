@@ -1,4 +1,4 @@
-# CropHealth AI — Backend + shared dependencies
+# CropHealth AI - Backend + shared dependencies
 # Python 3.11
 
 # Web framework
@@ -6,7 +6,7 @@ fastapi==0.115.6
 uvicorn[standard]==0.32.1
 
 # ML / inference
-tensorflow-cpu==2.18.0
+tensorflow==2.15.0
 numpy==1.26.4
 pillow==10.4.0
 
@@ -20,7 +20,3 @@ pydantic-settings==2.6.1
 
 # Frontend
 streamlit==1.41.1
-pandas==2.2.3
-
-# Standard-library extras (no additional install needed)
-# sqlite3 is included with Python
