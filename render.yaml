@@ -14,11 +14,14 @@ services:
     startCommand: python start_backend.py
 
     envVars:
-      # No secrets here — set OPENWEATHER_API_KEY in Render dashboard
+      # Pin Python to 3.11.9 (required for tensorflow-cpu 2.18 compatibility)
+      - key: PYTHON_VERSION
+        value: "3.11.9"
       - key: DEMO_MODE
         value: "false"
       - key: PYTHONUNBUFFERED
         value: "1"
+      # Optional: set OPENWEATHER_API_KEY in the Render dashboard (keep secret)
       # Persistent disk for SQLite (requires paid plan; on free tier the DB
       # resets on each deploy — history is ephemeral)
       # disk:
