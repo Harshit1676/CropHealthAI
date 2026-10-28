@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: crophealth-ai-backend
+    runtime: python
+    plan: free           # upgrade to starter for more RAM / no spin-down
+    region: oregon       # pick a region close to your users
+
+    # Render clones the full repo; the project root IS the root dir
+    rootDir: .
+
+    buildCommand: pip install --no-cache-dir -r requirements.txt
+
+    # Reads $PORT from Render environment automatically
+    startCommand: python start_backend.py
+
+    envVars:
+      # No secrets here — set OPENWEATHER_API_KEY in Render dashboard
+      - key: DEMO_MODE
+        value: "false"
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      # Persistent disk for SQLite (requires paid plan; on free tier the DB
+      # resets on each deploy — history is ephemeral)
+      # disk:
+      #   name: crophealth-data
+      #   mountPath: /opt/render/project/src/data
+      #   sizeGB: 1

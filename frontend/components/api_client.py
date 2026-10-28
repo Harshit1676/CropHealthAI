@@ -12,7 +12,24 @@ from typing import Any, Optional
 import requests
 import streamlit as st
 
-BACKEND_URL = os.getenv("BACKEND_URL", "http://127.0.0.1:8000")
+def _get_backend_url() -> str:
+    """
+    Resolve the backend URL in priority order:
+    1. Streamlit secrets (Streamlit Community Cloud)
+    2. BACKEND_URL environment variable
+    3. localhost fallback for local development
+    """
+    try:
+        # st.secrets is available on Streamlit Community Cloud
+        url = st.secrets.get("BACKEND_URL", "")
+        if url:
+            return url.rstrip("/")
+    except Exception:  # noqa: BLE001
+        pass
+    return os.getenv("BACKEND_URL", "http://127.0.0.1:8000").rstrip("/")
+
+
+BACKEND_URL = _get_backend_url()
 TIMEOUT = 30
 
 

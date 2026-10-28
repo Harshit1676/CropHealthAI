@@ -80,12 +80,15 @@ test_images/
 *.db
 *.sqlite
 *.sqlite3
+!data/.gitkeep
 
 # ML checkpoints and large model artifacts
+# The trained production model IS tracked (needed for deployment)
 models/*
 !models/.gitkeep
 !models/class_names.json
-*.keras
+!models/crop_disease_model.keras
+# Ignore other large/experimental model formats
 *.h5
 *.hdf5
 *.pt
@@ -106,7 +109,7 @@ checkpoints/
 # Generated reports and plots
 confusion_matrix.png
 classification_report.txt
-models/evaluation_report.json
-models/training_history.json
+# models/evaluation_report.json  <-- kept: useful reference
+# models/training_history.json   <-- kept: useful reference
 CropHealthAI_Viva_Preparation.html
 CropHealthAI_Viva_Preparation.pdf

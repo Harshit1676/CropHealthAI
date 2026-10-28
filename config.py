@@ -11,12 +11,16 @@ MODEL_PATH = BASE_DIR / "models" / "crop_disease_model.keras"
 CLASS_NAMES_PATH = BASE_DIR / "models" / "class_names.json"
 
 DATA_DIR = BASE_DIR / "data"
-DB_PATH = DATA_DIR / "crophealth.db"
+# Allow Render (or any deployment) to redirect the DB to a persistent volume
+# by setting the DB_PATH environment variable to an absolute path.
+_db_path_env = os.getenv("DB_PATH", "")
+DB_PATH = Path(_db_path_env) if _db_path_env else DATA_DIR / "crophealth.db"
 
 DATASET_DIR = BASE_DIR / "dataset"
 
 IMAGE_SIZE = (224, 224)
 SEED = 42
+LEARNING_RATE = 1e-3  # used by ml.model_utils and ml.train
 
 DEMO_MODE = os.getenv("DEMO_MODE", "false").lower() == "true"
 
