@@ -4,6 +4,7 @@
 # Web framework
 fastapi==0.115.6
 uvicorn[standard]==0.32.1
+python-multipart
 
 # ML / inference
 tensorflow==2.16.1
